@@ -3,104 +3,101 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#ff7a00" />
+  <meta name="theme-color" content="#101815" />
   <title>ЦФО × Я — профессионал · Региональные активности X сезона</title>
-  <meta name="description" content="Календарь региональных активностей ЦФО для X сезона олимпиады «Я — профессионал»: Москва, регионы, цифровой паспорт, профи-квиз, Mystery Internship Drop и другие форматы." />
-  <style>
-    :root{--orange:#ff6a00;--orange2:#ff9418;--ink:#1f2b52;--muted:#6c7691;--cream:#fff5eb;--line:#e9edf5;--white:#fff;--violet:#6657c7;--green:#168b62;--blue:#2568c8;--shadow:0 18px 50px rgba(38,49,84,.09);--radius:28px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.45}a{color:inherit;text-decoration:none}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
-    .hero{position:relative;overflow:hidden;padding:28px 0 76px;background:linear-gradient(180deg,#fff 0%,#fff 68%,#fff8f0 100%)}
-    .hero:before,.hero:after{content:"";position:absolute;border-radius:999px;pointer-events:none}.hero:before{width:420px;height:420px;right:-130px;top:70px;background:radial-gradient(circle at 38% 35%,#ffb24d 0 13%,#ff7a00 14% 24%,transparent 25%),conic-gradient(from 90deg,transparent 0 16%,rgba(255,122,0,.12) 16% 33%,transparent 33% 58%,rgba(102,87,199,.12) 58% 72%,transparent 72%)}.hero:after{width:520px;height:110px;right:3%;bottom:20px;background:linear-gradient(9deg,transparent 0 36%,rgba(31,43,82,.05) 37% 52%,transparent 53%)}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:72px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.03em}.brand-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--orange),#ffb138);display:grid;place-items:center;color:#fff;font-size:20px;box-shadow:0 10px 28px rgba(255,106,0,.28)}.brand small{display:block;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}.nav a{padding:10px 14px;border-radius:999px;font-size:14px;font-weight:700;color:#56617c}.nav a:hover{background:#f5f6fa;color:var(--ink)}
-    .kicker{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:#fff1e5;color:#d95700;font-weight:800;font-size:13px;margin-bottom:22px}.kicker i{width:8px;height:8px;border-radius:50%;background:var(--orange)}h1{font-size:clamp(46px,7vw,88px);line-height:.96;letter-spacing:-.065em;margin:0 0 24px;max-width:900px}.accent{color:var(--orange)}.lead{font-size:clamp(18px,2.3vw,27px);line-height:1.25;color:#59647f;max-width:780px;margin:0 0 36px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 18px;border-radius:16px;font-weight:850;border:1px solid var(--line);background:#fff;box-shadow:0 8px 20px rgba(28,40,76,.06)}.btn.primary{background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff;border:0}.btn span{font-size:18px}
-    .section{padding:90px 0}.section.soft{background:#f8f9fc}.section.orangewash{background:linear-gradient(180deg,#fff9f3,#fff)}.eyebrow{color:var(--orange);font-size:13px;letter-spacing:.13em;text-transform:uppercase;font-weight:900;margin-bottom:10px}.section h2{font-size:clamp(34px,5vw,58px);line-height:1.02;letter-spacing:-.045em;margin:0 0 18px}.section-intro{font-size:19px;color:var(--muted);max-width:800px;margin:0 0 38px}
-    .timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.time-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:24px;padding:20px;min-height:250px;box-shadow:0 10px 30px rgba(31,43,82,.05);transition:.2s transform,.2s box-shadow}.time-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.month{font-size:12px;font-weight:900;color:var(--orange);text-transform:uppercase;letter-spacing:.08em}.ico{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#fff0e1,#ffe1c2);display:grid;place-items:center;font-size:24px;margin:22px 0 16px}.time-card h3{font-size:20px;line-height:1.12;margin:0 0 10px;letter-spacing:-.025em}.time-card p{font-size:14px;color:#6b748c;margin:0}.throughline{margin-top:18px;border-radius:24px;background:linear-gradient(135deg,#ff6a00,#ff9d24);color:#fff;padding:25px 28px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;box-shadow:0 20px 45px rgba(255,106,0,.2)}.throughline strong{font-size:24px;display:block;margin-bottom:4px}.throughline small{font-size:15px;opacity:.9}.stamp-mini{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.stamp-mini b{border:2px dashed rgba(255,255,255,.72);padding:9px 11px;border-radius:12px;transform:rotate(-2deg);font-size:12px}.stamp-mini b:nth-child(2){transform:rotate(2deg)}
-    .format-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.format{background:#fff;border-radius:28px;border:1px solid var(--line);padding:28px;box-shadow:0 10px 30px rgba(31,43,82,.045)}.format-head{display:flex;gap:16px;align-items:flex-start}.format .bigico{width:58px;height:58px;border-radius:18px;flex:0 0 auto;background:linear-gradient(135deg,#ff7411,#ffaf41);color:#fff;display:grid;place-items:center;font-size:28px}.format h3{font-size:27px;line-height:1.05;letter-spacing:-.035em;margin:2px 0 7px}.tag{display:inline-flex;padding:5px 9px;border-radius:999px;background:#fff0e4;color:#d95400;font-size:12px;font-weight:850}.format p{color:var(--muted);margin:18px 0 0}.format ul{padding:0;margin:18px 0 0;list-style:none;display:grid;gap:8px}.format li{display:flex;gap:10px;align-items:flex-start}.format li:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);margin-top:8px;flex:0 0 auto}
-    .compare{display:grid;grid-template-columns:180px 1fr 1fr;border:1px solid var(--line);border-radius:26px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}.compare>div{padding:18px 20px;border-bottom:1px solid var(--line)}.compare>div:nth-last-child(-n+3){border-bottom:0}.compare .head{background:linear-gradient(135deg,#ff760d,#ff9c21);color:#fff;font-weight:900;font-size:18px}.compare .label{font-weight:900;background:#fff7ef}.compare .cell{color:#5e6985}.compare strong{color:var(--ink)}
-    .specials{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}.special{border:1px solid #ffd5b4;border-radius:24px;padding:24px;background:linear-gradient(135deg,#fff9f4,#fff)}.special h3{margin:0 0 14px;font-size:23px}.special ul{margin:0;padding-left:20px;color:#5f6983}.special li{margin:8px 0}.special.moscow h3{color:#ef5e00}.special.regions h3{color:#5b4eb8}
-    .passport{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}.phone{position:relative;margin:auto;width:min(390px,100%);aspect-ratio:.62;background:#17213f;border-radius:48px;padding:12px;box-shadow:0 40px 80px rgba(31,43,82,.22);transform:rotate(-2deg)}.phone:before{content:"";position:absolute;width:36%;height:25px;border-radius:0 0 18px 18px;background:#17213f;top:7px;left:32%;z-index:2}.screen{height:100%;border-radius:38px;background:linear-gradient(180deg,#fff 0%,#fff7ef 100%);padding:44px 22px 22px;overflow:hidden}.screen h4{font-size:25px;margin:0 0 4px;letter-spacing:-.04em}.screen p{margin:0;color:var(--muted);font-size:13px}.home-region{display:inline-flex;margin-top:12px;padding:7px 10px;border-radius:999px;background:#eef3ff;color:#314d90;font-weight:850;font-size:11px}.progress{margin:18px 0 8px;height:9px;border-radius:999px;background:#eceff5;overflow:hidden}.progress i{display:block;width:66%;height:100%;background:linear-gradient(90deg,var(--orange),#ffad36)}.route-label{font-size:12px;color:#6e7893;margin-bottom:12px}.stamps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.stamp{border:2px dashed currentColor;border-radius:16px;padding:14px 9px;text-align:center;font-weight:950;font-size:12px;background:#fff;transform:rotate(-2deg);color:#e55918}.stamp:nth-child(2){color:var(--green);transform:rotate(2deg)}.stamp:nth-child(3){color:var(--blue);transform:rotate(1deg)}.stamp:nth-child(4){color:#754cc8;transform:rotate(-1deg)}.stamp small{display:block;font-size:9px;letter-spacing:.07em;margin-top:4px;opacity:.65}.passport-copy h2{margin-bottom:16px}.passport-copy .feature-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}.mini{border:1px solid var(--line);border-radius:20px;padding:17px;background:#fff}.mini strong{display:block;font-size:16px;margin-bottom:4px}.mini span{font-size:13px;color:var(--muted)}.clarify{margin:20px 0 0;padding:17px 19px;border-radius:18px;background:#fff1e5;border:1px solid #ffd4b1;color:#9b4308;font-weight:750}.clarify b{color:#e85b00}
-    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}.metric{background:#fff;border:1px solid var(--line);border-radius:20px;padding:19px}.metric b{font-size:21px;display:block;margin-bottom:5px}.metric span{font-size:13px;color:var(--muted)}
-    .footer{padding:42px 0 58px;background:#1e294d;color:#fff}.footer .row{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer small{color:#c1c7d8}.footer .note{max-width:600px}
-    @media(max-width:980px){.timeline{grid-template-columns:repeat(3,1fr)}.compare{grid-template-columns:140px 1fr 1fr}.passport{grid-template-columns:1fr}.phone{order:2}.passport-copy{order:1}.metrics{grid-template-columns:1fr 1fr}}
-    @media(max-width:720px){.wrap{width:min(100% - 24px,1180px)}.topbar{margin-bottom:52px}.nav{display:none}h1{font-size:48px}.section{padding:64px 0}.timeline{grid-template-columns:1fr 1fr}.format-grid,.specials{grid-template-columns:1fr}.compare{display:block;border:0;background:transparent;box-shadow:none}.compare>div{border:1px solid var(--line);border-radius:16px;margin-bottom:8px}.compare .head:nth-of-type(1){display:none}.compare .head{margin-top:18px}.metrics,.passport-copy .feature-list{grid-template-columns:1fr 1fr}.throughline{grid-template-columns:1fr}.footer .row{display:block}.footer .brand{margin-bottom:18px}}
-    @media(max-width:460px){.timeline,.metrics,.passport-copy .feature-list{grid-template-columns:1fr}.hero{padding-bottom:48px}.hero-actions{display:grid}.btn{width:100%}}
-  </style>
+  <meta name="description" content="Архитектура региональных активностей ЦФО в X сезоне олимпиады «Я — профессионал»: календарь, форматы, цифровой паспорт, Москва и регионы." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <div class="topbar">
-        <div class="brand"><div class="brand-mark">ЯП</div><div>Я — профессионал<small>проектная концепция · ЦФО</small></div></div>
-        <nav class="nav"><a href="#calendar">Календарь</a><a href="#formats">Форматы</a><a href="#compare">Москва / регионы</a><a href="#passport">Паспорт</a></nav>
-      </div>
-      <div class="kicker"><i></i> X сезон · Мастерская лидеров</div>
-      <h1>Региональные активности, ради которых <span class="accent">хочется прийти</span></h1>
-      <p class="lead">Один сезон, несколько ярких форматов и цифровой паспорт, который связывает всё в маршрут: от первого касания до отбора и дальше.</p>
-      <div class="hero-actions"><a class="btn primary" href="#calendar"><span>↓</span> Смотреть календарь</a><a class="btn" href="#compare">Москва и регионы</a></div>
-    </div>
+  <header class="topbar wrap">
+    <a class="brand" href="#top" aria-label="Я — профессионал, в начало">
+      <span class="brand-logo"><span class="brand-pixel">↗</span><span class="brand-name">Я —<br>ПРОФЕССИОНАЛ</span></span>
+      <span class="brand-copy"><strong>Региональные активности ЦФО</strong><span>X сезон · проектная концепция</span></span>
+    </a>
+    <nav aria-label="Навигация по странице">
+      <a href="#calendar">Календарь</a><a href="#formats">Форматы</a><a href="#passport">Паспорт</a><a href="#compare">Москва / регионы</a><a href="#metrics">Метрики</a>
+    </nav>
+    <span class="season">Мастерская лидеров · 2026</span>
   </header>
 
   <main>
-    <section class="section" id="calendar">
-      <div class="wrap">
-        <div class="eyebrow">Календарь X сезона</div>
-        <h2>Активности идут в ритме олимпиады</h2>
-        <p class="section-intro">У каждой точки есть своя задача: привести новых людей, довести зарегистрировавшихся до отбора или вернуть участника в сообщество после паузы.</p>
-        <div class="timeline">
-          <article class="time-card"><div class="month">сентябрь — октябрь</div><div class="ico">🚀</div><h3>Старт сезона + цифровой паспорт</h3><p>Первый вход в сезон, маршрут по активностям, сбор отметок.</p></article>
-          <article class="time-card"><div class="month">октябрь</div><div class="ico">🏆</div><h3>Профи-квиз «Студенты vs профи»</h3><p>Командная игра, кейсы компаний, регистрация на ЯП прямо после финала.</p></article>
-          <article class="time-card"><div class="month">ноябрь</div><div class="ico">▦</div><h3>Профи-бинго + выход на отбор</h3><p>Чекпоинты сезона, микрообязательство и отметка за реальный show-up.</p></article>
-          <article class="time-card"><div class="month">декабрь</div><div class="ico">🎁</div><h3>Mystery Internship Drop</h3><p>Интрига, «места ограничены», реальный кейс компании и карьерная ценность ЯП.</p></article>
-          <article class="time-card"><div class="month">февраль — март</div><div class="ico">💬</div><h3>Работодатель проходит собеседование</h3><p>Короткие питчи компаний, честные вопросы студентов и прямой контакт.</p></article>
-          <article class="time-card"><div class="month">апрель — июнь</div><div class="ico">★</div><h3>Финиш сезона</h3><p>Закрываем маршрут, показываем личный прогресс и сохраняем активное ядро.</p></article>
+    <section class="hero wrap" id="top">
+      <div>
+        <p class="role">ЦФО · X сезон · региональные активности</p>
+        <h1>Сезон,<br>который хочется<br>пройти до конца</h1>
+        <p class="summary">Пять событий по таймлайну олимпиады и одна сквозная механика. Регион получает готовый каркас, лидер — понятный сценарий, участник — маршрут от первого входа до активного ядра сообщества.</p>
+        <div class="hero-actions"><a class="btn primary" href="#calendar">Смотреть календарь ↓</a><a class="btn" href="#passport">Цифровой паспорт</a></div>
+      </div>
+      <aside class="hero-side">
+        <div class="brand-panel">
+          <span class="panel-index">01 / идея</span>
+          <div class="panel-title">Меньше чатов.<br>Больше поводов прийти.</div>
+          <div class="panel-meta"><span>5 региональных инициатив</span><span>1 сезонный маршрут</span></div>
         </div>
-        <div class="throughline"><div><strong>Цифровой паспорт ЯП + Профи-бинго</strong><small>Отметки собираются за активности сезона. Полный маршрут можно пройти в своём городе или вузе — поездки по ЦФО не нужны.</small></div><div class="stamp-mini"><b>КВИЗ ✓</b><b>ОТБОР ✓</b><b>MYSTERY DROP</b></div></div>
+      </aside>
+    </section>
+
+    <section class="section wrap" id="calendar">
+      <header class="section-head"><p class="section-number">01</p><div><h2>Календарь сезона</h2><p>Каждая активность стоит там, где у воронки появляется конкретная проблема: регистрация, show-up, пауза после отбора или потеря карьерной мотивации.</p></div></header>
+      <div class="calendar">
+        <article class="event"><div class="event-time"><strong>Сентябрь — октябрь</strong><span>старт сезона</span></div><div><p class="event-kicker">Первый вход</p><h3>Старт сезона + цифровой паспорт</h3><p>Запуск личного маршрута участника, первые отметки, навигация по локальным активностям и понятный следующий шаг.</p></div><div class="event-goal"><small>роль в воронке</small><b>войти в сезон</b></div></article>
+        <article class="event"><div class="event-time"><strong>Октябрь</strong><span>волна регистраций</span></div><div><p class="event-kicker">Регистрация</p><h3>Профи-квиз «Студенты vs профи»</h3><p>Командная игра 60–90 минут: логика, профессии, кейс компании, финальный блиц. Квиз собирает людей ради игры, а регистрация на ЯП становится следующим действием.</p></div><div class="event-goal"><small>роль в воронке</small><b>зарегистрировать</b></div></article>
+        <article class="event"><div class="event-time"><strong>Ноябрь</strong><span>отборочный этап</span></div><div><p class="event-kicker">Show-up</p><h3>Профи-бинго + выход на отбор</h3><p>Цифровые чекпоинты и микродействия в паспорте: выбрать дату, пройти подготовительный шаг, выйти на отбор и зафиксировать прохождение этапа.</p></div><div class="event-goal"><small>роль в воронке</small><b>довести до отбора</b></div></article>
+        <article class="event"><div class="event-time"><strong>Декабрь</strong><span>пауза после отбора</span></div><div><p class="event-kicker">Удержание</p><h3>Mystery Internship Drop</h3><p>Интрига вокруг реального кейса работодателя. В анонсе сохраняем подогрев «места ограничены», на площадке раскрывается компания и карьерный контекст задачи.</p></div><div class="event-goal"><small>роль в воронке</small><b>вернуть после отбора</b></div></article>
+        <article class="event"><div class="event-time"><strong>Февраль — март</strong><span>заключительный этап</span></div><div><p class="event-kicker">Карьерная ценность</p><h3>Работодатель проходит собеседование</h3><p>Работодатель питчит себя студентам, затем отвечает на анонимные вопросы. После — короткие личные разговоры и контакты для follow-up.</p></div><div class="event-goal"><small>роль в воронке</small><b>собрать ядро</b></div></article>
       </div>
     </section>
 
-    <section class="section soft" id="formats">
-      <div class="wrap">
-        <div class="eyebrow">Флагманские форматы</div>
-        <h2>Что именно происходит</h2>
-        <p class="section-intro">Четыре формата, которые можно собирать локально и адаптировать под размер города, вузовскую среду и партнёров.</p>
-        <div class="format-grid">
-          <article class="format"><div class="format-head"><div class="bigico">🏆</div><div><span class="tag">октябрь</span><h3>Профи-квиз «Студенты vs профи»</h3></div></div><p>60–90 минут, команды студентов и экспертов, несколько раундов: логика, профессии, кейсы компаний, финальный блиц.</p><ul><li>Может быть межвузовским или внутри одного крупного кампуса.</li><li>Кейс от партнёра встраивается прямо в игру.</li><li>Регистрация на ЯП — естественный следующий шаг после квиза.</li></ul></article>
-          <article class="format"><div class="format-head"><div class="bigico">🎁</div><div><span class="tag">декабрь</span><h3>Mystery Internship Drop</h3></div></div><p>Участник знает направление, время и интригу. Компания и реальный кейс раскрываются ближе к старту.</p><ul><li>В коммуникации сохраняем ощущение дефицита: «места ограничены».</li><li>Формат показывает, как выглядит реальная задача работодателя.</li><li>После кейса партнёр показывает стажировку или карьерный маршрут.</li></ul></article>
-          <article class="format"><div class="format-head"><div class="bigico">💬</div><div><span class="tag">февраль — март</span><h3>Работодатель проходит собеседование</h3></div></div><p>Работодатель получает несколько минут, чтобы убедить студентов, почему к нему стоит идти. Потом вопросы из зала.</p><ul><li>Можно собирать анонимные вопросы заранее.</li><li>После питчей — короткие столы / speed networking.</li><li>В регионе формат легко держится на 1–2 сильных местных компаниях.</li></ul></article>
-          <article class="format"><div class="format-head"><div class="bigico">▦</div><div><span class="tag">весь сезон</span><h3>Профи-бинго</h3></div></div><p>Игровой слой внутри цифрового паспорта. Участник собирает линию из трёх действий и видит прогресс сезона.</p><ul><li>Отметки только за реальные действия и посещения.</li><li>Новые клетки открываются вместе с календарём.</li><li>Даёт человеку простой повод вернуться ещё раз.</li></ul></article>
+    <section class="section wrap" id="formats">
+      <header class="section-head"><p class="section-number">02</p><div><h2>Как выглядят форматы</h2><p>Сценарии масштабируются под размер города и вуза. Меняется логистика, а смысл, роли и метрики остаются сопоставимыми.</p></div></header>
+      <div class="projects">
+        <article class="project"><p class="project-index">A / ОКТЯБРЬ</p><h3>Профи-квиз</h3><p>Командная игра, которая привлекает на событие сама по себе. «Студенты vs профи» — один из раундов или финал, а не отдельное мероприятие.</p><dl class="project-meta"><div><dt>Роли</dt><dd>лидер · вуз · партнёр</dd></div><div><dt>Метрики</dt><dd>участники · QR-переходы · регистрации</dd></div></dl></article>
+        <article class="project"><p class="project-index">B / ДЕКАБРЬ</p><h3>Mystery Internship Drop</h3><p>Участник знает направление и время, но не знает компанию и кейс до раскрытия. Формат рекламирует карьерные возможности через опыт, а не обещание.</p><dl class="project-meta"><div><dt>Роли</dt><dd>лидер · HR/партнёр · вуз</dd></div><div><dt>Метрики</dt><dd>посещаемость · return rate · follow-up</dd></div></dl></article>
+        <article class="project"><p class="project-index">C / ФЕВРАЛЬ — МАРТ</p><h3>Работодатель проходит собеседование</h3><p>Reverse interview: студенты оценивают работодателя, задают неудобные вопросы и выбирают, с кем продолжить разговор.</p><dl class="project-meta"><div><dt>Роли</dt><dd>лидер · работодатели · карьерный центр</dd></div><div><dt>Метрики</dt><dd>вопросы · контакты · повторные визиты</dd></div></dl></article>
+        <article class="project"><p class="project-index">D / ВЕСЬ СЕЗОН</p><h3>Профи-бинго</h3><p>Игровой слой цифрового паспорта. Новые клетки открываются по календарю и превращают сезон в серию небольших достижимых шагов.</p><dl class="project-meta"><div><dt>Роли</dt><dd>участник · лидер · организатор</dd></div><div><dt>Метрики</dt><dd>чекпоинты · повторные визиты · show-up</dd></div></dl></article>
+      </div>
+    </section>
+
+    <section class="section wrap" id="passport">
+      <div class="passport-shell">
+        <div class="pass-card" aria-label="Пример цифрового паспорта">
+          <div class="pass-top"><div class="pass-title">Цифровой<br>паспорт ЯП</div><div class="pass-region">мой регион<br>Воронежская область</div></div>
+          <div class="progress-line"><i></i></div><div class="pass-progress">4 из 6 этапов сезонного маршрута</div>
+          <div class="stamps"><div class="stamp">Профи-квиз<br>✓</div><div class="stamp">Отбор<br>✓</div><div class="stamp">Mystery Drop<br>✓</div><div class="stamp">Reverse interview</div></div>
+          <div class="bingo"><span class="done">выбрал<br>дату</span><span class="done">квиз</span><span>вопрос<br>работодателю</span><span class="done">отбор</span><span>drop</span><span>новый<br>контакт</span><span>чек-лист</span><span>финал</span><span>ядро</span></div>
+        </div>
+        <div class="passport-copy"><p class="kicker">03 / сквозная механика</p><h2>Паспорт фиксирует действия, не города</h2><p>Участнику не нужно ездить по ЦФО. Он проходит сезон в своём городе или вузе, а город хранится как контекст активности. Отметка выдаётся за реальное действие: квиз, отбор, Drop, reverse interview и другие чекпоинты.</p>
+          <div class="passport-grid"><div class="pass-feature"><b>QR + временный код</b><span>Отметка подтверждается на площадке, пересылка QR не закрывает этап.</span></div><div class="pass-feature"><b>Следующий шаг</b><span>После каждой отметки видно, что делать дальше и когда.</span></div><div class="pass-feature"><b>Профи-бинго</b><span>Короткие действия дают повод вернуться между крупными событиями.</span></div><div class="pass-feature"><b>Аналитика</b><span>Организатор видит возвраты, переходы и реальную активность по регионам.</span></div></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="compare">
-      <div class="wrap">
-        <div class="eyebrow">Одна логика, разный запуск</div>
-        <h2>Москва и регионы ЦФО</h2>
-        <p class="section-intro">Форматы остаются узнаваемыми, а способ сборки меняется под среду. Паспорт при этом один и тот же: участник закрывает активности своего локального календаря.</p>
-        <div class="compare">
-          <div class="head">Формат</div><div class="head">Москва</div><div class="head">Регионы ЦФО</div>
-          <div class="label">Профи-квиз</div><div class="cell"><strong>Крупные кампусы и межвузовские сборки.</strong> Быстрый набор через карьерные центры, студсообщества и факультетские каналы.</div><div class="cell"><strong>Городской формат.</strong> Команды нескольких вузов + локальные эксперты и компании. Больше веса у офлайна и личного приглашения.</div>
-          <div class="label">Mystery Drop</div><div class="cell"><strong>Крупный работодатель.</strong> Сильный digital-анонс, сбор через сообщества нескольких вузов, несколько тематических потоков.</div><div class="cell"><strong>Локальная компания.</strong> Кейс можно привязать к городу; людей приводят лидеры, партнёры и вузы.</div>
-          <div class="label">Работодатель проходит собеседование</div><div class="cell"><strong>Несколько работодателей.</strong> Короткие питчи, много вопросов, быстрый speed networking.</div><div class="cell"><strong>1–2 работодателя.</strong> Больше времени на Q&A, личный контакт и разговор о реальных возможностях в регионе.</div>
-          <div class="label">Паспорт + бинго</div><div class="cell"><strong>Один маршрут сезона.</strong> Активности могут проходить на разных московских площадках, но отметки выдаются за формат и участие.</div><div class="cell"><strong>Тот же маршрут внутри своего города.</strong> Квиз, отбор, Mystery Drop и другие пункты можно закрыть локально — ездить по регионам не требуется.</div>
+    <section class="section wrap" id="compare">
+      <header class="section-head"><p class="section-number">04</p><div><h2>Москва / регионы</h2><p>Один каркас сезона, разные способы сборки. Формат не меняется по смыслу — меняются масштаб, партнёры и каналы привлечения.</p></div></header>
+      <div class="compare">
+        <div class="compare-col"><h3>Москва</h3><p>Больше кампусов, работодателей и конкурирующих активностей. Здесь важны скорость входа, сегментация и межвузовский масштаб.</p>
+          <div class="compare-list"><div class="compare-item"><strong>Профи-квиз</strong><span>межвузовские сборки, факультетские каналы, несколько партнёров</span></div><div class="compare-item"><strong>Mystery Drop</strong><span>крупные компании, сильный digital-анонс, тематические потоки</span></div><div class="compare-item"><strong>Reverse interview</strong><span>несколько работодателей + быстрый speed networking</span></div><div class="compare-item"><strong>Паспорт</strong><span>несколько маршрутов по вузам и форматам внутри города</span></div></div>
+          <div class="special"><small>формат только для Москвы</small><b>Campus Night Drop — вечерний маршрут по нескольким площадкам большого кампуса.</b></div>
         </div>
-        <div class="specials">
-          <div class="special moscow"><h3>Только для Москвы</h3><ul><li><b>Campus Night Drop</b> — вечерний маршрут по нескольким площадкам большого кампуса.</li><li><b>Speed networking работодателей</b> — короткие разговоры по 5–7 минут с переходом между столами.</li></ul></div>
-          <div class="special regions"><h3>Только для регионов</h3><ul><li><b>Межвузовский день ЯП</b> — один городской день, где встречаются участники нескольких вузов.</li><li><b>Выездной pop-up</b> — одна мобильная команда за неделю проходит несколько вузов региона.</li></ul></div>
+        <div class="compare-col"><h3>Регионы ЦФО</h3><p>Выше роль личного приглашения, локального работодателя и межвузовских связей. Форматы должны быть проще в логистике и сильнее привязаны к городу.</p>
+          <div class="compare-list"><div class="compare-item"><strong>Профи-квиз</strong><span>один вуз или городской межвузовский формат + локальные эксперты</span></div><div class="compare-item"><strong>Mystery Drop</strong><span>локальная компания, реальный кейс региона, сбор через лидеров и вузы</span></div><div class="compare-item"><strong>Reverse interview</strong><span>1–2 работодателя, больше времени на Q&A и личный контакт</span></div><div class="compare-item"><strong>Паспорт</strong><span>единая связка между небольшим числом офлайн-активностей</span></div></div>
+          <div class="special"><small>формат только для регионов</small><b>Межвузовский день ЯП — одно городское событие для студентов нескольких вузов.</b></div>
         </div>
       </div>
     </section>
 
-    <section class="section orangewash" id="passport">
-      <div class="wrap passport">
-        <div class="phone" aria-label="Макет цифрового паспорта"><div class="screen"><h4>Цифровой паспорт ЯП</h4><p>ЦФО · X сезон</p><div class="home-region">Мой регион: Воронежская область</div><div class="progress"><i></i></div><div class="route-label"><b>4 из 6</b> этапов сезонного маршрута</div><div class="stamps"><div class="stamp">ПРОФИ-КВИЗ<small>ОКТЯБРЬ · ✓</small></div><div class="stamp">ОТБОРОЧНЫЙ ЭТАП<small>НОЯБРЬ · ✓</small></div><div class="stamp">MYSTERY DROP<small>ДЕКАБРЬ · ✓</small></div><div class="stamp">REVERSE INTERVIEW<small>МАРТ · ✓</small></div></div></div></div>
-        <div class="passport-copy"><div class="eyebrow">Сквозная механика</div><h2>Паспорт собирает активности, а не города</h2><p class="section-intro">Участник проходит сезон у себя: в своём вузе, городе или регионе. За каждую активность он получает цифровую отметку. Город хранится в профиле и помогает организаторам видеть географию сообщества, но не является условием прохождения паспорта.</p><div class="clarify"><b>Пример:</b> студент из Воронежа может закрыть квиз, отбор, Mystery Drop, профи-бинго и встречу с работодателями полностью в Воронеже.</div><div class="feature-list"><div class="mini"><strong>QR + временный код</strong><span>Организатор показывает код в конце активности — отметку нельзя просто переслать другу.</span></div><div class="mini"><strong>Штамп = действие</strong><span>Квиз, отбор, кейс работодателя, бинго и другие этапы сезона.</span></div><div class="mini"><strong>Регион = профиль</strong><span>Показывает, где живёт сообщество и какие форматы работают на месте.</span></div><div class="mini"><strong>Следующий шаг</strong><span>После отметки паспорт показывает ближайшую доступную активность участника.</span></div></div>
-          <div class="metrics"><div class="metric"><b>Return rate</b><span>сколько участников приходят повторно</span></div><div class="metric"><b>Переходы</b><span>какие форматы реально ведут к следующему шагу</span></div><div class="metric"><b>Активные регионы</b><span>где и на каких форматах живёт сообщество</span></div><div class="metric"><b>Show-up</b><span>сколько дошли от регистрации до отбора</span></div></div>
-        </div>
+    <section class="section wrap" id="metrics">
+      <header class="section-head"><p class="section-number">05</p><div><h2>Что видят организаторы</h2><p>Паспорт превращает «люди состоят в чате» в наблюдаемую сезонную воронку.</p></div></header>
+      <div class="metrics"><div class="metric"><span class="metric-index">01</span><b>Регистрации</b><p>Какие активности реально приводят к регистрации на олимпиаду.</p></div><div class="metric"><span class="metric-index">02</span><b>Return rate</b><p>Сколько участников после первого события возвращаются на следующее.</p></div><div class="metric"><span class="metric-index">03</span><b>Show-up</b><p>Сколько зарегистрированных реально выходят на отбор.</p></div><div class="metric"><span class="metric-index">04</span><b>Активные регионы</b><p>Где участники не просто подписаны, а действительно ходят на активности.</p></div></div>
+    </section>
+
+    <section class="section closing">
+      <div class="wrap"><header class="section-head"><p class="section-number">06</p><div><h2>Сообщество строится вокруг действий</h2><p>Чат остаётся сервисным слоем: ссылка, напоминание, регистрация. Повод вернуться создаёт событие и личный прогресс.</p></div></header>
+        <div class="closing-grid"><p>Участник видит не бесконечную ленту сообщений, а понятный сезонный маршрут: пришёл → сделал → получил отметку → понимает, что дальше.</p><ul><li>5 инициатив</li><li>1 цифровой паспорт</li><li>единые метрики ЦФО</li><li>локальные сценарии запуска</li></ul></div>
       </div>
     </section>
   </main>
 
-  <footer class="footer"><div class="wrap row"><div class="brand"><div class="brand-mark">ЯП</div><div>ЦФО · X сезон<small>Мастерская лидеров</small></div></div><div class="note"><small>Проектная концепция региональных активностей. Сценарии можно адаптировать после согласования с организаторами и партнёрами.</small></div></div></footer>
+  <footer class="wrap"><span>Проектная концепция · ЦФО · X сезон · Мастерская лидеров</span><a href="#top">Наверх ↑</a></footer>
 </body>
 </html>
