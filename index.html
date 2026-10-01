@@ -1,103 +1,234 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#101815" />
-  <title>ЦФО × Я — профессионал · Региональные активности X сезона</title>
-  <meta name="description" content="Архитектура региональных активностей ЦФО в X сезоне олимпиады «Я — профессионал»: календарь, форматы, цифровой паспорт, Москва и регионы." />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f3c523">
+  <title>Я-Профи: Рынок — пульт ведущего</title>
+  <meta name="description" content="Пульт ведущего деловой игры «Я-Профи: Рынок»: таймер, цены, события, команды и финальный подсчёт.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar wrap">
-    <a class="brand" href="#top" aria-label="Я — профессионал, в начало">
-      <span class="brand-logo"><span class="brand-pixel">↗</span><span class="brand-name">Я —<br>ПРОФЕССИОНАЛ</span></span>
-      <span class="brand-copy"><strong>Региональные активности ЦФО</strong><span>X сезон · проектная концепция</span></span>
-    </a>
-    <nav aria-label="Навигация по странице">
-      <a href="#calendar">Календарь</a><a href="#formats">Форматы</a><a href="#passport">Паспорт</a><a href="#compare">Москва / регионы</a><a href="#metrics">Метрики</a>
-    </nav>
-    <span class="season">Мастерская лидеров · 2026</span>
+  <div class="ambient" aria-hidden="true">
+    <i class="orb orb-a"></i><i class="orb orb-b"></i><i class="ring"></i><i class="pill"></i><i class="spark">+</i>
+  </div>
+
+  <header class="topbar shell">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="Логотип Я — профессионал" class="brand-logo">
+      <div>
+        <div class="brand-title">Я-ПРОФИ: РЫНОК</div>
+        <div class="brand-sub">ПУЛЬТ ВЕДУЩЕГО · X СЕЗОН</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="chip" id="projectorBtn" type="button">↗ Экран участникам</button>
+      <button class="chip" id="fullscreenBtn" type="button">⛶ Полный экран</button>
+      <button class="chip icon-only" id="soundBtn" type="button" title="Звук включён" aria-label="Переключить звук">🔊</button>
+    </div>
   </header>
 
-  <main>
-    <section class="hero wrap" id="top">
-      <div>
-        <p class="role">ЦФО · X сезон · региональные активности</p>
-        <h1>Сезон,<br>который хочется<br>пройти до конца</h1>
-        <p class="summary">Пять событий по таймлайну олимпиады и одна сквозная механика. Регион получает готовый каркас, лидер — понятный сценарий, участник — маршрут от первого входа до активного ядра сообщества.</p>
-        <div class="hero-actions"><a class="btn primary" href="#calendar">Смотреть календарь ↓</a><a class="btn" href="#passport">Цифровой паспорт</a></div>
-      </div>
-      <aside class="hero-side">
-        <div class="brand-panel">
-          <span class="panel-index">01 / идея</span>
-          <div class="panel-title">Меньше чатов.<br>Больше поводов прийти.</div>
-          <div class="panel-meta"><span>5 региональных инициатив</span><span>1 сезонный маршрут</span></div>
+  <main class="shell dashboard" id="controllerView">
+    <section class="hero-grid">
+      <article class="timer-panel card dark-card">
+        <div class="eyebrow-row">
+          <span class="eyebrow" id="roundLabel">РАУНД 1 / 6</span>
+          <select id="phaseSelect" class="phase-select" aria-label="Фаза игры">
+            <option value="Торги">ТОРГИ</option>
+            <option value="Карты">КАРТЫ</option>
+            <option value="Событие">СОБЫТИЕ</option>
+            <option value="Подсчёт">ПОДСЧЁТ</option>
+            <option value="Пауза">ПАУЗА</option>
+          </select>
         </div>
-      </aside>
+
+        <div class="timer-wrap">
+          <div class="timer-ring" id="timerRing">
+            <div class="timer-time" id="timerText">06:00</div>
+            <div class="timer-status" id="timerStatus">ГОТОВ</div>
+          </div>
+        </div>
+
+        <div class="timer-controls">
+          <button class="btn primary" id="startPauseBtn" type="button">▶ Старт</button>
+          <button class="btn secondary" id="resetTimerBtn" type="button">↺ Сброс</button>
+          <div class="preset-group" aria-label="Длительность таймера">
+            <button data-seconds="360" class="preset active" type="button">6:00</button>
+            <button data-seconds="60" class="preset" type="button">1:00</button>
+            <button data-seconds="30" class="preset" type="button">0:30</button>
+          </div>
+        </div>
+        <div class="round-controls">
+          <button class="mini-btn" id="prevRoundBtn" type="button">← Раунд</button>
+          <button class="mini-btn strong" id="nextRoundBtn" type="button">Следующий раунд →</button>
+        </div>
+      </article>
+
+      <article class="market-panel card">
+        <div class="section-top">
+          <div>
+            <span class="eyebrow purple">РЫНОК СЕЙЧАС</span>
+            <h1>Цены без ограничений</h1>
+          </div>
+          <button class="text-btn" id="undoBtn" type="button">↶ Отменить</button>
+        </div>
+
+        <div class="market-grid" id="marketGrid">
+          <div class="asset energy" data-asset="energy">
+            <div class="asset-head"><span class="asset-icon">⚡</span><span>ЭНЕРГИЯ</span></div>
+            <div class="asset-price" id="energyPrice">10</div>
+            <div class="asset-delta" id="energyDelta">без изменений</div>
+            <div class="stepper">
+              <button data-change="-3">−3</button><button data-change="-1">−1</button><button data-change="1">+1</button><button data-change="3">+3</button>
+            </div>
+          </div>
+          <div class="asset agro" data-asset="agro">
+            <div class="asset-head"><span class="asset-icon">🌾</span><span>АГРО</span></div>
+            <div class="asset-price" id="agroPrice">10</div>
+            <div class="asset-delta" id="agroDelta">без изменений</div>
+            <div class="stepper">
+              <button data-change="-3">−3</button><button data-change="-1">−1</button><button data-change="1">+1</button><button data-change="3">+3</button>
+            </div>
+          </div>
+          <div class="asset tech" data-asset="tech">
+            <div class="asset-head"><span class="asset-icon">◆</span><span>ТЕХНОЛОГИИ</span></div>
+            <div class="asset-price" id="techPrice">10</div>
+            <div class="asset-delta" id="techDelta">без изменений</div>
+            <div class="stepper">
+              <button data-change="-3">−3</button><button data-change="-1">−1</button><button data-change="1">+1</button><button data-change="3">+3</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="batch-change">
+          <div class="batch-title">Сумма вскрытых карт</div>
+          <label>⚡ <input id="batchEnergy" type="number" value="0" step="1"></label>
+          <label>🌾 <input id="batchAgro" type="number" value="0" step="1"></label>
+          <label>◆ <input id="batchTech" type="number" value="0" step="1"></label>
+          <button class="btn purple-btn" id="applyBatchBtn" type="button">Применить</button>
+        </div>
+      </article>
     </section>
 
-    <section class="section wrap" id="calendar">
-      <header class="section-head"><p class="section-number">01</p><div><h2>Календарь сезона</h2><p>Каждая активность стоит там, где у воронки появляется конкретная проблема: регистрация, show-up, пауза после отбора или потеря карьерной мотивации.</p></div></header>
-      <div class="calendar">
-        <article class="event"><div class="event-time"><strong>Сентябрь — октябрь</strong><span>старт сезона</span></div><div><p class="event-kicker">Первый вход</p><h3>Старт сезона + цифровой паспорт</h3><p>Запуск личного маршрута участника, первые отметки, навигация по локальным активностям и понятный следующий шаг.</p></div><div class="event-goal"><small>роль в воронке</small><b>войти в сезон</b></div></article>
-        <article class="event"><div class="event-time"><strong>Октябрь</strong><span>волна регистраций</span></div><div><p class="event-kicker">Регистрация</p><h3>Профи-квиз «Студенты vs профи»</h3><p>Командная игра 60–90 минут: логика, профессии, кейс компании, финальный блиц. Квиз собирает людей ради игры, а регистрация на ЯП становится следующим действием.</p></div><div class="event-goal"><small>роль в воронке</small><b>зарегистрировать</b></div></article>
-        <article class="event"><div class="event-time"><strong>Ноябрь</strong><span>отборочный этап</span></div><div><p class="event-kicker">Show-up</p><h3>Профи-бинго + выход на отбор</h3><p>Цифровые чекпоинты и микродействия в паспорте: выбрать дату, пройти подготовительный шаг, выйти на отбор и зафиксировать прохождение этапа.</p></div><div class="event-goal"><small>роль в воронке</small><b>довести до отбора</b></div></article>
-        <article class="event"><div class="event-time"><strong>Декабрь</strong><span>пауза после отбора</span></div><div><p class="event-kicker">Удержание</p><h3>Mystery Internship Drop</h3><p>Интрига вокруг реального кейса работодателя. В анонсе сохраняем подогрев «места ограничены», на площадке раскрывается компания и карьерный контекст задачи.</p></div><div class="event-goal"><small>роль в воронке</small><b>вернуть после отбора</b></div></article>
-        <article class="event"><div class="event-time"><strong>Февраль — март</strong><span>заключительный этап</span></div><div><p class="event-kicker">Карьерная ценность</p><h3>Работодатель проходит собеседование</h3><p>Работодатель питчит себя студентам, затем отвечает на анонимные вопросы. После — короткие личные разговоры и контакты для follow-up.</p></div><div class="event-goal"><small>роль в воронке</small><b>собрать ядро</b></div></article>
+    <nav class="tabs" aria-label="Разделы пульта">
+      <button class="tab active" data-tab="flow">Сценарий</button>
+      <button class="tab" data-tab="events">Новости рынка</button>
+      <button class="tab" data-tab="teams">Команды</button>
+      <button class="tab" data-tab="reference">Справочник</button>
+      <button class="tab" data-tab="session">Сессия</button>
+    </nav>
+
+    <section class="tab-panel active" id="tab-flow">
+      <div class="two-col">
+        <article class="card">
+          <div class="section-top"><div><span class="eyebrow coral">ЧТО ДЕЛАТЬ СЕЙЧАС</span><h2 id="flowTitle">Раунд: свободные торги</h2></div></div>
+          <div class="flow-steps" id="flowSteps">
+            <div class="flow-step current"><b>1</b><div><strong>Открой торги</strong><span>6 минут. Команды свободно договариваются и передают деньги/жетоны сами.</span></div></div>
+            <div class="flow-step"><b>2</b><div><strong>Закрой биржу</strong><span>«Биржа закрыта. Руки убрали от жетонов».</span></div></div>
+            <div class="flow-step"><b>3</b><div><strong>Вскрой по одной карте</strong><span>Суммируй три изменения в блоке выше и нажми «Применить».</span></div></div>
+            <div class="flow-step"><b>4</b><div><strong>Добор карт</strong><span>Каждая команда берёт одну карту. После 2-го и 4-го раунда — глобальная новость.</span></div></div>
+          </div>
+        </article>
+
+        <article class="card script-card">
+          <span class="eyebrow green">РЕПЛИКА ВЕДУЩЕГО</span>
+          <blockquote id="hostLine">«Торги открыты. Цена на экране — ориентир, но условия сделки определяете вы сами».</blockquote>
+          <div class="quick-notes">
+            <div><b>Главное</b><span>Ты не банк. Сделки проходят напрямую между командами.</span></div>
+            <div><b>Отрицательная цена</b><span>Актив становится обязательством. За его передачу можно доплачивать.</span></div>
+            <div><b>Запрещено</b><span>Долги, будущие выплаты и сделки после закрытия биржи.</span></div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section wrap" id="formats">
-      <header class="section-head"><p class="section-number">02</p><div><h2>Как выглядят форматы</h2><p>Сценарии масштабируются под размер города и вуза. Меняется логистика, а смысл, роли и метрики остаются сопоставимыми.</p></div></header>
-      <div class="projects">
-        <article class="project"><p class="project-index">A / ОКТЯБРЬ</p><h3>Профи-квиз</h3><p>Командная игра, которая привлекает на событие сама по себе. «Студенты vs профи» — один из раундов или финал, а не отдельное мероприятие.</p><dl class="project-meta"><div><dt>Роли</dt><dd>лидер · вуз · партнёр</dd></div><div><dt>Метрики</dt><dd>участники · QR-переходы · регистрации</dd></div></dl></article>
-        <article class="project"><p class="project-index">B / ДЕКАБРЬ</p><h3>Mystery Internship Drop</h3><p>Участник знает направление и время, но не знает компанию и кейс до раскрытия. Формат рекламирует карьерные возможности через опыт, а не обещание.</p><dl class="project-meta"><div><dt>Роли</dt><dd>лидер · HR/партнёр · вуз</dd></div><div><dt>Метрики</dt><dd>посещаемость · return rate · follow-up</dd></div></dl></article>
-        <article class="project"><p class="project-index">C / ФЕВРАЛЬ — МАРТ</p><h3>Работодатель проходит собеседование</h3><p>Reverse interview: студенты оценивают работодателя, задают неудобные вопросы и выбирают, с кем продолжить разговор.</p><dl class="project-meta"><div><dt>Роли</dt><dd>лидер · работодатели · карьерный центр</dd></div><div><dt>Метрики</dt><dd>вопросы · контакты · повторные визиты</dd></div></dl></article>
-        <article class="project"><p class="project-index">D / ВЕСЬ СЕЗОН</p><h3>Профи-бинго</h3><p>Игровой слой цифрового паспорта. Новые клетки открываются по календарю и превращают сезон в серию небольших достижимых шагов.</p><dl class="project-meta"><div><dt>Роли</dt><dd>участник · лидер · организатор</dd></div><div><dt>Метрики</dt><dd>чекпоинты · повторные визиты · show-up</dd></div></dl></article>
+    <section class="tab-panel" id="tab-events">
+      <div class="event-layout">
+        <article class="card event-deck">
+          <span class="eyebrow purple">КОЛОДА НОВОСТЕЙ</span>
+          <div class="event-card" id="eventCard">
+            <div class="event-no">?</div>
+            <h2>Готово к раскрытию</h2>
+            <p>После 2-го и 4-го раунда нажми кнопку. Карта не повторится, пока колода не закончится.</p>
+            <div class="event-effects"><span>⚡ —</span><span>🌾 —</span><span>◆ —</span></div>
+          </div>
+          <div class="event-actions">
+            <button class="btn primary" id="drawEventBtn" type="button">Вытянуть новость</button>
+            <button class="btn purple-btn" id="applyEventBtn" type="button" disabled>Применить к ценам</button>
+          </div>
+          <button class="text-btn" id="resetEventsBtn" type="button">Собрать колоду заново</button>
+        </article>
+        <article class="card">
+          <span class="eyebrow coral">ИСТОРИЯ ЦЕН</span>
+          <div class="history-list" id="historyList"></div>
+        </article>
       </div>
     </section>
 
-    <section class="section wrap" id="passport">
-      <div class="passport-shell">
-        <div class="pass-card" aria-label="Пример цифрового паспорта">
-          <div class="pass-top"><div class="pass-title">Цифровой<br>паспорт ЯП</div><div class="pass-region">мой регион<br>Воронежская область</div></div>
-          <div class="progress-line"><i></i></div><div class="pass-progress">4 из 6 этапов сезонного маршрута</div>
-          <div class="stamps"><div class="stamp">Профи-квиз<br>✓</div><div class="stamp">Отбор<br>✓</div><div class="stamp">Mystery Drop<br>✓</div><div class="stamp">Reverse interview</div></div>
-          <div class="bingo"><span class="done">выбрал<br>дату</span><span class="done">квиз</span><span>вопрос<br>работодателю</span><span class="done">отбор</span><span>drop</span><span>новый<br>контакт</span><span>чек-лист</span><span>финал</span><span>ядро</span></div>
+    <section class="tab-panel" id="tab-teams">
+      <article class="card">
+        <div class="section-top">
+          <div><span class="eyebrow green">ФИНАЛЬНЫЙ ПОДСЧЁТ</span><h2>Команды</h2></div>
+          <span class="formula">деньги + активы × цены + 20 за задачу</span>
         </div>
-        <div class="passport-copy"><p class="kicker">03 / сквозная механика</p><h2>Паспорт фиксирует действия, не города</h2><p>Участнику не нужно ездить по ЦФО. Он проходит сезон в своём городе или вузе, а город хранится как контекст активности. Отметка выдаётся за реальное действие: квиз, отбор, Drop, reverse interview и другие чекпоинты.</p>
-          <div class="passport-grid"><div class="pass-feature"><b>QR + временный код</b><span>Отметка подтверждается на площадке, пересылка QR не закрывает этап.</span></div><div class="pass-feature"><b>Следующий шаг</b><span>После каждой отметки видно, что делать дальше и когда.</span></div><div class="pass-feature"><b>Профи-бинго</b><span>Короткие действия дают повод вернуться между крупными событиями.</span></div><div class="pass-feature"><b>Аналитика</b><span>Организатор видит возвраты, переходы и реальную активность по регионам.</span></div></div>
+        <div class="teams-table-wrap">
+          <table class="teams-table">
+            <thead><tr><th>Команда</th><th>Деньги</th><th>⚡</th><th>🌾</th><th>◆</th><th>Задача +20</th><th>Капитал</th></tr></thead>
+            <tbody id="teamsBody"></tbody>
+          </table>
         </div>
+        <div class="podium" id="podium"></div>
+      </article>
+    </section>
+
+    <section class="tab-panel" id="tab-reference">
+      <div class="reference-grid">
+        <article class="card"><span class="eyebrow purple">ТАКТИЧЕСКИЕ КАРТЫ</span><div class="ref-list" id="tacticsList"></div></article>
+        <article class="card"><span class="eyebrow coral">СЕКРЕТНЫЕ ЗАДАЧИ</span><div class="ref-list" id="missionsList"></div></article>
       </div>
     </section>
 
-    <section class="section wrap" id="compare">
-      <header class="section-head"><p class="section-number">04</p><div><h2>Москва / регионы</h2><p>Один каркас сезона, разные способы сборки. Формат не меняется по смыслу — меняются масштаб, партнёры и каналы привлечения.</p></div></header>
-      <div class="compare">
-        <div class="compare-col"><h3>Москва</h3><p>Больше кампусов, работодателей и конкурирующих активностей. Здесь важны скорость входа, сегментация и межвузовский масштаб.</p>
-          <div class="compare-list"><div class="compare-item"><strong>Профи-квиз</strong><span>межвузовские сборки, факультетские каналы, несколько партнёров</span></div><div class="compare-item"><strong>Mystery Drop</strong><span>крупные компании, сильный digital-анонс, тематические потоки</span></div><div class="compare-item"><strong>Reverse interview</strong><span>несколько работодателей + быстрый speed networking</span></div><div class="compare-item"><strong>Паспорт</strong><span>несколько маршрутов по вузам и форматам внутри города</span></div></div>
-          <div class="special"><small>формат только для Москвы</small><b>Campus Night Drop — вечерний маршрут по нескольким площадкам большого кампуса.</b></div>
-        </div>
-        <div class="compare-col"><h3>Регионы ЦФО</h3><p>Выше роль личного приглашения, локального работодателя и межвузовских связей. Форматы должны быть проще в логистике и сильнее привязаны к городу.</p>
-          <div class="compare-list"><div class="compare-item"><strong>Профи-квиз</strong><span>один вуз или городской межвузовский формат + локальные эксперты</span></div><div class="compare-item"><strong>Mystery Drop</strong><span>локальная компания, реальный кейс региона, сбор через лидеров и вузы</span></div><div class="compare-item"><strong>Reverse interview</strong><span>1–2 работодателя, больше времени на Q&A и личный контакт</span></div><div class="compare-item"><strong>Паспорт</strong><span>единая связка между небольшим числом офлайн-активностей</span></div></div>
-          <div class="special"><small>формат только для регионов</small><b>Межвузовский день ЯП — одно городское событие для студентов нескольких вузов.</b></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section wrap" id="metrics">
-      <header class="section-head"><p class="section-number">05</p><div><h2>Что видят организаторы</h2><p>Паспорт превращает «люди состоят в чате» в наблюдаемую сезонную воронку.</p></div></header>
-      <div class="metrics"><div class="metric"><span class="metric-index">01</span><b>Регистрации</b><p>Какие активности реально приводят к регистрации на олимпиаду.</p></div><div class="metric"><span class="metric-index">02</span><b>Return rate</b><p>Сколько участников после первого события возвращаются на следующее.</p></div><div class="metric"><span class="metric-index">03</span><b>Show-up</b><p>Сколько зарегистрированных реально выходят на отбор.</p></div><div class="metric"><span class="metric-index">04</span><b>Активные регионы</b><p>Где участники не просто подписаны, а действительно ходят на активности.</p></div></div>
-    </section>
-
-    <section class="section closing">
-      <div class="wrap"><header class="section-head"><p class="section-number">06</p><div><h2>Сообщество строится вокруг действий</h2><p>Чат остаётся сервисным слоем: ссылка, напоминание, регистрация. Повод вернуться создаёт событие и личный прогресс.</p></div></header>
-        <div class="closing-grid"><p>Участник видит не бесконечную ленту сообщений, а понятный сезонный маршрут: пришёл → сделал → получил отметку → понимает, что дальше.</p><ul><li>5 инициатив</li><li>1 цифровой паспорт</li><li>единые метрики ЦФО</li><li>локальные сценарии запуска</li></ul></div>
+    <section class="tab-panel" id="tab-session">
+      <div class="two-col">
+        <article class="card">
+          <span class="eyebrow purple">СОХРАНЕНИЕ</span>
+          <h2>Состояние хранится в браузере</h2>
+          <p class="muted">Раунд, цены, таймер, события и таблица команд автоматически записываются в localStorage. После перезагрузки всё восстановится.</p>
+          <div class="session-actions">
+            <button class="btn secondary" id="exportBtn" type="button">↓ Экспорт JSON</button>
+            <label class="btn secondary file-btn">↑ Импорт JSON<input id="importInput" type="file" accept="application/json"></label>
+          </div>
+        </article>
+        <article class="card danger-card">
+          <span class="eyebrow coral">НОВАЯ ИГРА</span>
+          <h2>Сбросить всю сессию</h2>
+          <p class="muted">Вернёт цены к 10, раунд к 1, очистит историю, события и финальный расчёт.</p>
+          <button class="btn danger" id="hardResetBtn" type="button">Сбросить всё</button>
+          <div class="shortcuts"><b>Горячие клавиши</b><span><kbd>Space</kbd> таймер</span><span><kbd>N</kbd> следующий раунд</span><span><kbd>F</kbd> fullscreen</span></div>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer class="wrap"><span>Проектная концепция · ЦФО · X сезон · Мастерская лидеров</span><a href="#top">Наверх ↑</a></footer>
+  <main class="display-view" id="displayView" hidden>
+    <header class="display-head">
+      <div class="brand compact"><img src="assets/logo.svg" alt=""><div><div class="brand-title">Я-ПРОФИ: РЫНОК</div><div class="brand-sub">X СЕЗОН</div></div></div>
+      <div class="display-phase"><span id="displayRound">РАУНД 1 / 6</span><b id="displayPhase">ТОРГИ</b></div>
+    </header>
+    <section class="display-main">
+      <div class="display-timer" id="displayTimer">06:00</div>
+      <div class="display-markets">
+        <div class="display-asset energy"><span>⚡ ЭНЕРГИЯ</span><b id="displayEnergy">10</b></div>
+        <div class="display-asset agro"><span>🌾 АГРО</span><b id="displayAgro">10</b></div>
+        <div class="display-asset tech"><span>◆ ТЕХНОЛОГИИ</span><b id="displayTech">10</b></div>
+      </div>
+      <div class="display-event" id="displayEvent" hidden><span>НОВОСТЬ РЫНКА</span><b id="displayEventTitle"></b><p id="displayEventEffect"></p></div>
+    </section>
+    <footer class="display-footer">ЦЕНА НА ЭКРАНЕ — ОРИЕНТИР. УСЛОВИЯ СДЕЛКИ ОПРЕДЕЛЯЕТЕ ВЫ.</footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
 </body>
 </html>
