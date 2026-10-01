@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#f3c523">
-  <title>Я-Профи: Рынок — пульт ведущего</title>
-  <meta name="description" content="Пульт ведущего деловой игры «Я-Профи: Рынок»: таймер, цены, события, команды и финальный подсчёт.">
+  <title>Рынок · Я — ПРОФЕССИОНАЛ · Пульт ведущего</title>
+  <meta name="description" content="Пульт ведущего деловой игры «Рынок» — «Я — ПРОФЕССИОНАЛ»: таймер, цены, события, команды и финальный подсчёт.">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,10 +16,10 @@
 
   <header class="topbar shell">
     <div class="brand">
-      <img src="assets/logo.svg" alt="Логотип Я — профессионал" class="brand-logo">
+      <img src="assets/logo.svg" alt="Логотип «Я — ПРОФЕССИОНАЛ»" class="brand-logo">
       <div>
-        <div class="brand-title">Я-ПРОФИ: РЫНОК</div>
-        <div class="brand-sub">ПУЛЬТ ВЕДУЩЕГО · X СЕЗОН</div>
+        <div class="brand-title">Я — ПРОФЕССИОНАЛ</div>
+        <div class="brand-sub">РЫНОК · ПУЛЬТ ВЕДУЩЕГО · X СЕЗОН</div>
       </div>
     </div>
     <div class="top-actions">
@@ -69,7 +69,7 @@
         <div class="section-top">
           <div>
             <span class="eyebrow purple">РЫНОК СЕЙЧАС</span>
-            <h1>Цены без ограничений</h1>
+            <h1>Текущие цены</h1>
           </div>
           <button class="text-btn" id="undoBtn" type="button">↶ Отменить</button>
         </div>
@@ -103,10 +103,14 @@
 
         <div class="batch-change">
           <div class="batch-title">Сумма вскрытых карт</div>
-          <label>⚡ <input id="batchEnergy" type="number" value="0" step="1"></label>
-          <label>🌾 <input id="batchAgro" type="number" value="0" step="1"></label>
-          <label>◆ <input id="batchTech" type="number" value="0" step="1"></label>
+          <label>⚡ <input aria-label="Изменение цены Энергии" id="batchEnergy" type="number" value="0" step="1"></label>
+          <label>🌾 <input aria-label="Изменение цены Агро" id="batchAgro" type="number" value="0" step="1"></label>
+          <label>◆ <input aria-label="Изменение цены Технологий" id="batchTech" type="number" value="0" step="1"></label>
           <button class="btn purple-btn" id="applyBatchBtn" type="button">Применить</button>
+        </div>
+        <div class="market-note">
+          <span class="note-symbol" aria-hidden="true">±</span>
+          <div><strong>Цена может уйти ниже нуля</strong><p>Актив становится обязательством и уменьшает итоговый капитал. При сделке можно доплатить команде, которая его заберёт.</p></div>
         </div>
       </article>
     </section>
@@ -172,6 +176,7 @@
           <div><span class="eyebrow green">ФИНАЛЬНЫЙ ПОДСЧЁТ</span><h2>Команды</h2></div>
           <span class="formula">деньги + активы × цены + 20 за задачу</span>
         </div>
+        <p class="muted">Внесите остатки денег и активов в конце игры. Отметьте выполненную секретную задачу — её бонус добавится к капиталу.</p>
         <div class="teams-table-wrap">
           <table class="teams-table">
             <thead><tr><th>Команда</th><th>Деньги</th><th>⚡</th><th>🌾</th><th>◆</th><th>Задача +20</th><th>Капитал</th></tr></thead>
@@ -193,8 +198,8 @@
       <div class="two-col">
         <article class="card">
           <span class="eyebrow purple">СОХРАНЕНИЕ</span>
-          <h2>Состояние хранится в браузере</h2>
-          <p class="muted">Раунд, цены, таймер, события и таблица команд автоматически записываются в localStorage. После перезагрузки всё восстановится.</p>
+          <h2>Игра сохраняется автоматически</h2>
+          <p class="muted">Раунд, цены, таймер, новости и команды сохраняются в этом браузере. Для переноса на другое устройство скачайте файл сессии. Экран участникам открывайте в том же браузере, что и пульт.</p>
           <div class="session-actions">
             <button class="btn secondary" id="exportBtn" type="button">↓ Экспорт JSON</button>
             <label class="btn secondary file-btn">↑ Импорт JSON<input id="importInput" type="file" accept="application/json"></label>
@@ -205,7 +210,7 @@
           <h2>Сбросить всю сессию</h2>
           <p class="muted">Вернёт цены к 10, раунд к 1, очистит историю, события и финальный расчёт.</p>
           <button class="btn danger" id="hardResetBtn" type="button">Сбросить всё</button>
-          <div class="shortcuts"><b>Горячие клавиши</b><span><kbd>Space</kbd> таймер</span><span><kbd>N</kbd> следующий раунд</span><span><kbd>F</kbd> fullscreen</span></div>
+          <div class="shortcuts"><b>Горячие клавиши</b><span><kbd>Space</kbd> таймер</span><span><kbd>N</kbd> следующий раунд</span><span><kbd>F</kbd> полный экран</span></div>
         </article>
       </div>
     </section>
@@ -213,7 +218,7 @@
 
   <main class="display-view" id="displayView" hidden>
     <header class="display-head">
-      <div class="brand compact"><img src="assets/logo.svg" alt=""><div><div class="brand-title">Я-ПРОФИ: РЫНОК</div><div class="brand-sub">X СЕЗОН</div></div></div>
+      <div class="brand compact"><img class="brand-logo" src="assets/logo.svg" alt="Логотип «Я — ПРОФЕССИОНАЛ»"><div><div class="brand-title">Я — ПРОФЕССИОНАЛ</div><div class="brand-sub">РЫНОК · X СЕЗОН</div></div></div>
       <div class="display-phase"><span id="displayRound">РАУНД 1 / 6</span><b id="displayPhase">ТОРГИ</b></div>
     </header>
     <section class="display-main">

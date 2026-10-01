@@ -8,3 +8,43 @@ button,input,select{font:inherit}.topbar{display:flex;align-items:center;justify
 .display-view{min-height:100vh;background:linear-gradient(145deg,#ed9d1c,#f3c523 48%,#ef8e19);padding:34px;display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden}.display-view:before,.display-view:after{content:"";position:absolute;border-radius:50%;pointer-events:none}.display-view:before{width:380px;height:380px;background:radial-gradient(circle at 30% 25%,#a8e6ff,#6652b7 38%,#35216f 75%);right:-120px;top:-90px;box-shadow:0 35px 60px rgba(47,25,71,.25)}.display-view:after{width:240px;height:240px;border:34px solid rgba(255,255,255,.68);left:-100px;bottom:-60px}.display-head{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}.compact .brand-logo{width:70px;height:70px}.compact .brand-title{font-size:28px}.compact .brand-sub{font-size:12px}.display-phase{display:flex;gap:12px;align-items:center;background:rgba(255,253,247,.86);padding:12px 16px;border-radius:999px;font-size:14px;font-weight:950;box-shadow:var(--shadow)}.display-phase b{background:#211b2b;color:#fff;border-radius:999px;padding:8px 12px}.display-main{display:grid;align-content:center;justify-items:center;gap:26px;position:relative;z-index:2}.display-timer{font-size:clamp(140px,19vw,330px);font-weight:950;letter-spacing:-.085em;line-height:.8;text-shadow:0 18px 40px rgba(100,48,10,.12)}.display-timer.danger{color:#a4192b}.display-markets{width:min(1400px,100%);display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.display-asset{background:rgba(255,253,247,.93);border-radius:26px;padding:18px 24px;box-shadow:var(--shadow);display:flex;align-items:flex-end;justify-content:space-between}.display-asset span{font-size:16px;font-weight:950;letter-spacing:.06em}.display-asset b{font-size:clamp(64px,8vw,118px);letter-spacing:-.07em;line-height:.8}.display-asset b.negative{color:#ad182c}.display-event{width:min(1200px,100%);background:#211b2b;color:#fff;border-radius:24px;padding:18px 24px;text-align:center}.display-event span{font-size:11px;color:var(--yellow);font-weight:950;letter-spacing:.16em}.display-event b{display:block;font-size:30px;margin-top:5px}.display-event p{margin:4px 0 0;color:#d7d0df;font-size:16px}.display-footer{text-align:center;position:relative;z-index:2;font-size:12px;font-weight:950;letter-spacing:.09em;padding:10px}.display-view[hidden]{display:none!important}
 @media(max-width:1050px){.hero-grid,.two-col,.reference-grid,.event-layout{grid-template-columns:1fr}.hero-grid{grid-template-columns:1fr}.timer-panel{max-width:none}.market-grid{grid-template-columns:repeat(3,1fr)}.batch-change{grid-template-columns:1fr repeat(3,.7fr)}.batch-change .btn{grid-column:1/-1}.display-markets{grid-template-columns:1fr 1fr 1fr}}
 @media(max-width:720px){.shell{width:min(100% - 18px,1440px)}.topbar{align-items:flex-start}.brand-logo{width:48px;height:48px}.brand-title{font-size:17px}.brand-sub{font-size:9px}.top-actions{max-width:180px}.chip{padding:8px 10px;font-size:11px}.market-grid{grid-template-columns:1fr}.asset{display:grid;grid-template-columns:1fr auto;align-items:center}.asset-price{grid-column:2;grid-row:1/3;margin:0;font-size:62px}.asset-delta{grid-column:1}.stepper{grid-column:1/-1}.batch-change{grid-template-columns:1fr 1fr}.batch-title{grid-column:1/-1}.batch-change .btn{grid-column:1/-1}.tabs{margin-top:12px}.card{padding:18px;border-radius:22px}.quick-notes div{grid-template-columns:1fr}.podium{grid-template-columns:1fr}.display-view{padding:18px}.display-head{align-items:flex-start}.compact .brand-title{font-size:17px}.compact .brand-logo{width:50px;height:50px}.display-phase{font-size:10px;padding:8px}.display-timer{font-size:28vw}.display-markets{grid-template-columns:1fr}.display-asset{padding:12px 16px}.display-asset b{font-size:60px}.display-event b{font-size:22px}}
+
+/* Official mark and responsive host controls. */
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--purple);outline-offset:4px}
+.dark-card :focus-visible{outline-color:var(--yellow)}
+button:disabled{opacity:.45;cursor:default;transform:none;filter:none}
+.topbar{padding:24px 0 20px;gap:24px}
+.brand{min-width:0;gap:16px}
+.brand-logo{flex-shrink:0;width:76px;height:76px;padding:8px;background:var(--paper);border-radius:20px;box-shadow:0 8px 24px rgba(73,43,18,.08)}
+.brand-title{font-size:clamp(20px,2.2vw,32px);font-weight:900;line-height:1.05;letter-spacing:-.045em}
+.brand-sub{font-size:11px;line-height:1.5;letter-spacing:.11em;margin-top:7px}
+.market-panel{display:flex;flex-direction:column}
+.market-note{display:flex;align-items:flex-start;gap:14px;margin-top:auto;padding:22px 8px 0}
+.note-symbol{display:grid;place-items:center;flex-shrink:0;width:48px;height:48px;border-radius:14px;background:#ece5f8;color:var(--purple);font-size:28px;font-weight:900}
+.market-note strong{font-size:15px}
+.market-note p{margin:6px 0 0;font-size:13px;line-height:1.55;color:var(--muted);max-width:580px}
+.display-event[hidden]{display:none!important}
+.display-timer.danger{background:transparent}
+.compact .brand-logo{padding:7px}
+@media(max-width:1100px){.topbar{flex-wrap:wrap}.top-actions{margin-left:auto}.market-note{margin-top:16px}}
+@media(max-width:720px){
+ .topbar{gap:14px;padding:16px 4px}
+ .brand{gap:10px;width:100%}
+ .brand-logo{width:58px;height:58px;border-radius:15px;padding:5px}
+ .brand-title{font-size:clamp(18px,5.1vw,28px)}
+ .brand-sub{font-size:9px;letter-spacing:.08em;margin-top:5px}
+ .top-actions{max-width:none;width:100%;justify-content:flex-start;gap:6px}
+ .chip{padding:10px 12px;font-size:12px}
+ .icon-only{width:38px;padding:10px 0}
+ .market-note{padding:16px 0 0;gap:10px}
+ .note-symbol{width:36px;height:36px;font-size:23px;border-radius:10px}
+ .market-note strong{font-size:14px}
+ .market-note p{font-size:12px}
+ .section-top{align-items:flex-start;flex-wrap:wrap}
+ .display-head{gap:14px;flex-wrap:wrap}
+ .display-head .brand{width:auto}
+ .compact .brand-title{font-size:clamp(16px,4vw,24px)}
+ .display-phase{margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button,.toast{transition:none}}

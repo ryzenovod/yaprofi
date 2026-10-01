@@ -27,10 +27,16 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Prepare site files
+        run: |
+          node --check app.js
+          mkdir -p _site
+          cp index.html styles.css app.js _site/
+          cp -R assets _site/assets
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
