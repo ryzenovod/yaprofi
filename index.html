@@ -7,12 +7,10 @@
   <title>Рынок · Я — ПРОФЕССИОНАЛ · Пульт ведущего</title>
   <meta name="description" content="Пульт ведущего деловой игры «Рынок» — «Я — ПРОФЕССИОНАЛ»: таймер, цены, события, команды и финальный подсчёт.">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="assets/fonts/gotham-book.otf" as="font" type="font/otf" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=brand-2">
 </head>
 <body>
-  <div class="ambient" aria-hidden="true">
-    <i class="orb orb-a"></i><i class="orb orb-b"></i><i class="ring"></i><i class="pill"></i><i class="spark">+</i>
-  </div>
 
   <header class="topbar shell">
     <div class="brand">
@@ -23,9 +21,9 @@
       </div>
     </div>
     <div class="top-actions">
-      <button class="chip" id="projectorBtn" type="button">↗ Экран участникам</button>
-      <button class="chip" id="fullscreenBtn" type="button">⛶ Полный экран</button>
-      <button class="chip icon-only" id="soundBtn" type="button" title="Звук включён" aria-label="Переключить звук">🔊</button>
+      <button class="chip" id="projectorBtn" type="button">Экран участников</button>
+      <button class="chip" id="fullscreenBtn" type="button">Полный экран</button>
+      <button class="chip sound-control" id="soundBtn" type="button" title="Звук включён" aria-label="Переключить звук">Звук</button>
     </div>
   </header>
 
@@ -51,8 +49,8 @@
         </div>
 
         <div class="timer-controls">
-          <button class="btn primary" id="startPauseBtn" type="button">▶ Старт</button>
-          <button class="btn secondary" id="resetTimerBtn" type="button">↺ Сброс</button>
+          <button class="btn primary" id="startPauseBtn" type="button">Старт</button>
+          <button class="btn secondary" id="resetTimerBtn" type="button">Сброс</button>
           <div class="preset-group" aria-label="Длительность таймера">
             <button data-seconds="360" class="preset active" type="button">6:00</button>
             <button data-seconds="60" class="preset" type="button">1:00</button>
@@ -60,23 +58,22 @@
           </div>
         </div>
         <div class="round-controls">
-          <button class="mini-btn" id="prevRoundBtn" type="button">← Раунд</button>
-          <button class="mini-btn strong" id="nextRoundBtn" type="button">Следующий раунд →</button>
+          <button class="mini-btn" id="prevRoundBtn" type="button">Предыдущий</button>
+          <button class="mini-btn strong" id="nextRoundBtn" type="button">Следующий</button>
         </div>
       </article>
 
       <article class="market-panel card">
         <div class="section-top">
           <div>
-            <span class="eyebrow purple">РЫНОК СЕЙЧАС</span>
-            <h1>Текущие цены</h1>
+            <h1>Цены</h1>
           </div>
           <button class="text-btn" id="undoBtn" type="button">↶ Отменить</button>
         </div>
 
         <div class="market-grid" id="marketGrid">
           <div class="asset energy" data-asset="energy">
-            <div class="asset-head"><span class="asset-icon">⚡</span><span>ЭНЕРГИЯ</span></div>
+            <div class="asset-head"><span>ЭНЕРГИЯ</span></div>
             <div class="asset-price" id="energyPrice">10</div>
             <div class="asset-delta" id="energyDelta">без изменений</div>
             <div class="stepper">
@@ -84,7 +81,7 @@
             </div>
           </div>
           <div class="asset agro" data-asset="agro">
-            <div class="asset-head"><span class="asset-icon">🌾</span><span>АГРО</span></div>
+            <div class="asset-head"><span>АГРО</span></div>
             <div class="asset-price" id="agroPrice">10</div>
             <div class="asset-delta" id="agroDelta">без изменений</div>
             <div class="stepper">
@@ -92,7 +89,7 @@
             </div>
           </div>
           <div class="asset tech" data-asset="tech">
-            <div class="asset-head"><span class="asset-icon">◆</span><span>ТЕХНОЛОГИИ</span></div>
+            <div class="asset-head"><span>ТЕХНОЛОГИИ</span></div>
             <div class="asset-price" id="techPrice">10</div>
             <div class="asset-delta" id="techDelta">без изменений</div>
             <div class="stepper">
@@ -102,16 +99,13 @@
         </div>
 
         <div class="batch-change">
-          <div class="batch-title">Сумма вскрытых карт</div>
-          <label>⚡ <input aria-label="Изменение цены Энергии" id="batchEnergy" type="number" value="0" step="1"></label>
-          <label>🌾 <input aria-label="Изменение цены Агро" id="batchAgro" type="number" value="0" step="1"></label>
-          <label>◆ <input aria-label="Изменение цены Технологий" id="batchTech" type="number" value="0" step="1"></label>
+          <div class="batch-title">Изменения по картам</div>
+          <label><span>Энергия</span><input aria-label="Изменение цены Энергии" id="batchEnergy" type="number" value="0" step="1"></label>
+          <label><span>Агро</span><input aria-label="Изменение цены Агро" id="batchAgro" type="number" value="0" step="1"></label>
+          <label><span>Технологии</span><input aria-label="Изменение цены Технологий" id="batchTech" type="number" value="0" step="1"></label>
           <button class="btn purple-btn" id="applyBatchBtn" type="button">Применить</button>
         </div>
-        <div class="market-note">
-          <span class="note-symbol" aria-hidden="true">±</span>
-          <div><strong>Цена может уйти ниже нуля</strong><p>Актив становится обязательством и уменьшает итоговый капитал. При сделке можно доплатить команде, которая его заберёт.</p></div>
-        </div>
+
       </article>
     </section>
 
@@ -128,20 +122,22 @@
         <article class="card">
           <div class="section-top"><div><span class="eyebrow coral">ЧТО ДЕЛАТЬ СЕЙЧАС</span><h2 id="flowTitle">Раунд: свободные торги</h2></div></div>
           <div class="flow-steps" id="flowSteps">
-            <div class="flow-step current"><b>1</b><div><strong>Открой торги</strong><span>6 минут. Команды свободно договариваются и передают деньги/жетоны сами.</span></div></div>
-            <div class="flow-step"><b>2</b><div><strong>Закрой биржу</strong><span>«Биржа закрыта. Руки убрали от жетонов».</span></div></div>
-            <div class="flow-step"><b>3</b><div><strong>Вскрой по одной карте</strong><span>Суммируй три изменения в блоке выше и нажми «Применить».</span></div></div>
-            <div class="flow-step"><b>4</b><div><strong>Добор карт</strong><span>Каждая команда берёт одну карту. После 2-го и 4-го раунда — глобальная новость.</span></div></div>
+            <div class="flow-step"><b>1</b><div><strong>Ранние тактики</strong><span>До торгов выполните ранние действия. Они занимают ход карты в этом раунде.</span></div></div>
+            <div class="flow-step current"><b>2</b><div><strong>Откройте торги</strong><span>6 минут. Команды договариваются и сразу передают деньги и жетоны.</span></div></div>
+            <div class="flow-step"><b>3</b><div><strong>Закройте биржу и раскройте карты</strong><span>На выбор — 1 минута. Команды, сыгравшие раннюю тактику, пропускают раскрытие.</span></div></div>
+            <div class="flow-step"><b>4</b><div><strong>Пересчитайте цены</strong><span>Вторая волна «Двойного хода» → Стоп → Хедж → Лоббист → обычные изменения → ценовые тактики.</span></div></div>
+            <div class="flow-step"><b>5</b><div><strong>Опцион и новость</strong><span>Опцион — до 30 секунд. После раундов 2 и 4 примените новость рынка.</span></div></div>
+            <div class="flow-step"><b>6</b><div><strong>Сброс и добор</strong><span>Каждая команда берёт одну карту после раундов 1–5. После шестого — подсчёт.</span></div></div>
           </div>
         </article>
 
         <article class="card script-card">
           <span class="eyebrow green">РЕПЛИКА ВЕДУЩЕГО</span>
-          <blockquote id="hostLine">«Торги открыты. Цена на экране — ориентир, но условия сделки определяете вы сами».</blockquote>
+          <blockquote id="hostLine">«Торги открыты. У вас шесть минут».</blockquote>
           <div class="quick-notes">
-            <div><b>Главное</b><span>Ты не банк. Сделки проходят напрямую между командами.</span></div>
+            <div><b>Сделки</b><span>Команды сами передают друг другу деньги и жетоны.</span></div>
             <div><b>Отрицательная цена</b><span>Актив становится обязательством. За его передачу можно доплачивать.</span></div>
-            <div><b>Запрещено</b><span>Долги, будущие выплаты и сделки после закрытия биржи.</span></div>
+            <div><b>После закрытия</b><span>Сделок нет, кроме одной добровольной сделки с жетоном по заранее сыгранному «Опциону».</span></div>
           </div>
         </article>
       </div>
@@ -154,8 +150,8 @@
           <div class="event-card" id="eventCard">
             <div class="event-no">?</div>
             <h2>Готово к раскрытию</h2>
-            <p>После 2-го и 4-го раунда нажми кнопку. Карта не повторится, пока колода не закончится.</p>
-            <div class="event-effects"><span>⚡ —</span><span>🌾 —</span><span>◆ —</span></div>
+            <p>После раундов 2 и 4 вытяните новость и примените её к ценам.</p>
+            <div class="event-effects"><span>Энергия —</span><span>Агро —</span><span>Технологии —</span></div>
           </div>
           <div class="event-actions">
             <button class="btn primary" id="drawEventBtn" type="button">Вытянуть новость</button>
@@ -173,13 +169,13 @@
     <section class="tab-panel" id="tab-teams">
       <article class="card">
         <div class="section-top">
-          <div><span class="eyebrow green">ФИНАЛЬНЫЙ ПОДСЧЁТ</span><h2>Команды</h2></div>
+          <div><h2>Капитал команд</h2></div>
           <span class="formula">деньги + активы × цены + 20 за задачу</span>
         </div>
         <p class="muted">Внесите остатки денег и активов в конце игры. Отметьте выполненную секретную задачу — её бонус добавится к капиталу.</p>
         <div class="teams-table-wrap">
           <table class="teams-table">
-            <thead><tr><th>Команда</th><th>Деньги</th><th>⚡</th><th>🌾</th><th>◆</th><th>Задача +20</th><th>Капитал</th></tr></thead>
+            <thead><tr><th>Команда</th><th>Деньги</th><th>Энергия</th><th>Агро</th><th>Технологии</th><th>Задача +20</th><th>Капитал</th></tr></thead>
             <tbody id="teamsBody"></tbody>
           </table>
         </div>
@@ -198,8 +194,8 @@
       <div class="two-col">
         <article class="card">
           <span class="eyebrow purple">СОХРАНЕНИЕ</span>
-          <h2>Игра сохраняется автоматически</h2>
-          <p class="muted">Раунд, цены, таймер, новости и команды сохраняются в этом браузере. Для переноса на другое устройство скачайте файл сессии. Экран участникам открывайте в том же браузере, что и пульт.</p>
+          <h2>Сохранение игры</h2>
+          <p class="muted">Игра сохраняется в этом браузере. Чтобы перенести её на другое устройство, скачайте файл сессии.</p>
           <div class="session-actions">
             <button class="btn secondary" id="exportBtn" type="button">↓ Экспорт JSON</button>
             <label class="btn secondary file-btn">↑ Импорт JSON<input id="importInput" type="file" accept="application/json"></label>
@@ -207,8 +203,8 @@
         </article>
         <article class="card danger-card">
           <span class="eyebrow coral">НОВАЯ ИГРА</span>
-          <h2>Сбросить всю сессию</h2>
-          <p class="muted">Вернёт цены к 10, раунд к 1, очистит историю, события и финальный расчёт.</p>
+          <h2>Новая игра</h2>
+          <p class="muted">Цены вернутся к 10, раунд — к первому. Текущая игра будет удалена.</p>
           <button class="btn danger" id="hardResetBtn" type="button">Сбросить всё</button>
           <div class="shortcuts"><b>Горячие клавиши</b><span><kbd>Space</kbd> таймер</span><span><kbd>N</kbd> следующий раунд</span><span><kbd>F</kbd> полный экран</span></div>
         </article>
@@ -224,16 +220,15 @@
     <section class="display-main">
       <div class="display-timer" id="displayTimer">06:00</div>
       <div class="display-markets">
-        <div class="display-asset energy"><span>⚡ ЭНЕРГИЯ</span><b id="displayEnergy">10</b></div>
-        <div class="display-asset agro"><span>🌾 АГРО</span><b id="displayAgro">10</b></div>
-        <div class="display-asset tech"><span>◆ ТЕХНОЛОГИИ</span><b id="displayTech">10</b></div>
+        <div class="display-asset energy"><span>ЭНЕРГИЯ</span><b id="displayEnergy">10</b></div>
+        <div class="display-asset agro"><span>АГРО</span><b id="displayAgro">10</b></div>
+        <div class="display-asset tech"><span>ТЕХНОЛОГИИ</span><b id="displayTech">10</b></div>
       </div>
       <div class="display-event" id="displayEvent" hidden><span>НОВОСТЬ РЫНКА</span><b id="displayEventTitle"></b><p id="displayEventEffect"></p></div>
     </section>
-    <footer class="display-footer">ЦЕНА НА ЭКРАНЕ — ОРИЕНТИР. УСЛОВИЯ СДЕЛКИ ОПРЕДЕЛЯЕТЕ ВЫ.</footer>
   </main>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js"></script>
+  <script src="app.js?v=brand-2"></script>
 </body>
 </html>
